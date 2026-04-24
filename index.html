@@ -1,1582 +1,583 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Help4Me - Helpdesk em 15 segundos. Conectando quem precisa de ajuda a quem resolve</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>UniFECAF AI First — Apresentação à Liderança</title>
 
-  <!-- Reveal.js 5.x from CDN -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css" id="theme" />
-  <!-- Highlight.js plugin theme -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
 
-  <style>
-    /* ===== BRAND TOKENS ===== */
-    :root {
-      --coral: #FF5A5F;
-      --teal: #00A699;
-      --sunset: #FC642D;
-      --dark: #1a1a2e;
-      --darker: #0f0f1a;
-      --muted: #6b7280;
-      --light: #e5e7eb;
-      --white: #f8fafc;
-    }
+<style>
+  :root {
+    --bg-100: #f8f8f6;
+    --bg-300: #efeeeb;
+    --bg-500: #e8e7e3;
+    --text-000: #121212;
+    --text-200: #373734;
+    --text-500: #7b7974;
+    --border-400: #1f1f1e;
+    --border-300: #d4d3cf;
+    --accent-100: #2977d6;
+    --accent-secondary: #d97706;
+    --oncolor-100: #ffffff;
+    --font-ui: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-serif: Georgia, 'Times New Roman', serif;
+    --font-mono: ui-monospace, monospace;
+  }
 
-    /* ===== GLOBAL OVERRIDES ===== */
-    .reveal-viewport {
-      background: var(--darker);
-    }
-    .reveal {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      color: var(--white);
-    }
-    .reveal h1, .reveal h2, .reveal h3 {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      text-transform: none;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-    }
-    .reveal h1 { font-size: 2.8em; }
-    .reveal h2 { font-size: 2em; }
-    .reveal h3 { font-size: 1.4em; color: var(--light); }
-    .reveal p  { font-weight: 400; line-height: 1.6; }
-    .reveal section { text-align: left; }
-    .reveal blockquote {
-      background: rgba(255,255,255,0.03);
-      border-left: 4px solid var(--teal);
-      padding: 0.8em 1.2em;
-      font-style: italic;
-      width: 90%;
-    }
+  html, body { background: var(--bg-100); }
+  .reveal {
+    font-family: var(--font-ui);
+    color: var(--text-000);
+    font-size: 30px;
+    font-weight: 400;
+  }
+  .reveal .slides { text-align: left; }
+  .reveal .slides section { padding: 0 1.5em; }
 
-    /* ===== COLOR UTILITIES ===== */
-    .coral  { color: var(--coral); }
-    .teal   { color: var(--teal); }
-    .sunset { color: var(--sunset); }
-    .muted  { color: var(--muted); }
-    .light  { color: var(--light); }
+  .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+    font-family: var(--font-ui);
+    text-transform: none;
+    letter-spacing: -0.015em;
+    color: var(--text-000);
+    font-weight: 600;
+    margin: 0 0 0.4em;
+  }
+  .reveal h1 { font-size: 3.6em; font-weight: 700; letter-spacing: -0.03em; line-height: 1.02; }
+  .reveal h2 { font-size: 2em; line-height: 1.15; }
+  .reveal h3 { font-size: 1.1em; color: var(--accent-100); font-weight: 500; letter-spacing: 0.02em; text-transform: uppercase; }
+  .reveal h4 { font-size: 1.3em; color: var(--text-200); font-weight: 500; }
 
-    /* ===== LAYOUT HELPERS ===== */
-    .centered { text-align: center; }
-    .r-stack-custom { display: flex; align-items: center; justify-content: center; gap: 2em; flex-wrap: wrap; }
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2em; align-items: start; }
-    .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5em; }
-    .four-col { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1.2em; }
+  .reveal p, .reveal li {
+    font-family: var(--font-serif);
+    color: var(--text-200);
+    line-height: 1.55;
+  }
+  .reveal strong { color: var(--text-000); font-weight: 700; }
+  .reveal em { color: var(--text-500); font-style: italic; }
+  .reveal ul, .reveal ol { margin-left: 1.2em; }
+  .reveal ul li { list-style: none; position: relative; margin: 0.4em 0; padding-left: 0.9em; }
+  .reveal ul li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0.75em;
+    width: 6px; height: 1px;
+    background: var(--accent-100);
+  }
+  .reveal ol { counter-reset: num; }
+  .reveal ol li {
+    list-style: none; counter-increment: num; position: relative;
+    padding-left: 2.2em; margin: 0.6em 0;
+  }
+  .reveal ol li::before {
+    content: counter(num, decimal-leading-zero);
+    position: absolute; left: 0; top: 0;
+    font-family: var(--font-ui);
+    font-size: 0.75em;
+    font-weight: 600;
+    color: var(--accent-100);
+    letter-spacing: 0.05em;
+    padding-top: 0.3em;
+  }
 
-    /* ===== STAT CARDS ===== */
-    .stat-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 1.8em 1.5em;
-      text-align: center;
-    }
-    .stat-card .number {
-      font-size: 3.2em;
-      font-weight: 900;
-      line-height: 1;
-      margin-bottom: 0.15em;
-    }
-    .stat-card .label {
-      font-size: 0.85em;
-      color: var(--muted);
-      line-height: 1.4;
-    }
+  .reveal blockquote {
+    border-left: 3px solid var(--accent-100);
+    padding: 0.4em 1em;
+    background: var(--bg-300);
+    font-family: var(--font-serif);
+    font-size: 1.1em;
+    color: var(--text-200);
+    box-shadow: none;
+    margin: 0;
+    width: 100%;
+  }
 
-    /* ===== STEP CARDS ===== */
-    .step-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px;
-      padding: 1.2em 1em;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .step-card .step-num {
-      font-size: 1.6em;
-      font-weight: 900;
-      margin-bottom: 0.2em;
-    }
-    .step-card .step-title {
-      font-size: 0.95em;
-      font-weight: 700;
-      margin-bottom: 0.3em;
-    }
-    .step-card .step-time {
-      font-size: 0.75em;
-      color: var(--muted);
-    }
+  .reveal .controls { color: var(--text-500); }
+  .reveal .progress { color: var(--accent-100); background: rgba(0,0,0,0.06); }
+  .reveal .slide-number { font-family: var(--font-ui); background: transparent; color: var(--text-500); }
 
-    /* ===== COMPARISON TABLE ===== */
-    .compare-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.72em;
-    }
-    .compare-table th, .compare-table td {
-      padding: 0.65em 0.8em;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      text-align: left;
-    }
-    .compare-table th {
-      font-weight: 800;
-      font-size: 1em;
-      padding-bottom: 0.8em;
-    }
-    .compare-table .col-them {
-      color: var(--muted);
-      width: 35%;
-    }
-    .compare-table .col-us {
-      color: var(--teal);
-      font-weight: 700;
-      width: 35%;
-    }
-    .compare-table .col-feature {
-      color: var(--light);
-      font-weight: 600;
-      width: 30%;
-    }
+  /* Slide utilities */
+  .kicker {
+    font-family: var(--font-ui);
+    font-size: 0.75em;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-500);
+    margin-bottom: 1em;
+  }
+  .kicker.accent { color: var(--accent-100); }
+  .kicker.warm { color: var(--accent-secondary); }
 
-    /* ===== TECH STACK TABLE ===== */
-    .tech-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.8em;
-    }
-    .tech-table td {
-      padding: 0.5em 0.8em;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .tech-table td:first-child {
-      color: var(--muted);
-      font-weight: 600;
-      width: 35%;
-    }
-    .tech-table td:last-child {
-      color: var(--white);
-      font-weight: 500;
-    }
+  .lead {
+    font-family: var(--font-serif);
+    font-size: 1.35em;
+    line-height: 1.45;
+    color: var(--text-000);
+    max-width: 22ch;
+  }
+  .meta {
+    font-family: var(--font-ui);
+    font-size: 0.6em;
+    color: var(--text-500);
+    margin-top: 3em;
+    letter-spacing: 0.02em;
+  }
 
-    /* ===== DEMO SLIDE ===== */
-    .demo-badge {
-      display: inline-block;
-      background: var(--coral);
-      color: white;
-      font-size: 0.55em;
-      font-weight: 800;
-      padding: 0.3em 1em;
-      border-radius: 999px;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      margin-bottom: 0.5em;
-      animation: pulse-badge 2s ease-in-out infinite;
-    }
-    @keyframes pulse-badge {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.6; }
-    }
-    .demo-url {
-      font-family: 'JetBrains Mono', 'Fira Code', monospace;
-      background: rgba(0,166,153,0.15);
-      border: 1px solid rgba(0,166,153,0.3);
-      padding: 0.4em 0.8em;
-      border-radius: 8px;
-      font-size: 0.7em;
-      color: var(--teal);
-      display: inline-block;
-      margin-top: 0.3em;
-    }
-    .skip-link {
-      font-size: 0.5em;
-      color: var(--muted);
-      text-decoration: none;
-      margin-top: 1.5em;
-      display: inline-block;
-    }
-    .skip-link:hover { color: var(--light); }
+  .cover {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+  .cover h1 { font-size: 4.6em; }
+  .cover .dot { color: var(--accent-100); }
 
-    /* ===== FLOW DIAGRAM ===== */
-    .flow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6em;
-      flex-wrap: wrap;
-      font-size: 0.95em;
-    }
-    .flow-step {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 10px;
-      padding: 0.6em 1.1em;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-    .flow-arrow {
-      color: var(--teal);
-      font-size: 1.3em;
-      font-weight: 300;
-    }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6em; margin-top: 1em; }
+  .grid-3 .col h3 { font-size: 0.85em; margin-bottom: 0.3em; }
+  .grid-3 .col h4 { font-size: 1.15em; margin-bottom: 0.4em; }
+  .grid-3 .col p { font-size: 0.7em; line-height: 1.45; }
 
-    /* ===== ARCHITECTURE BOX ===== */
-    .arch-box {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 1em 1.2em;
-      margin: 0.4em 0;
-    }
-    .arch-box.highlight {
-      border-color: var(--teal);
-      background: rgba(0,166,153,0.08);
-    }
-    .arch-label {
-      font-size: 0.65em;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      margin-bottom: 0.3em;
-    }
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.4em;
+    margin-top: 1em;
+    border-top: 1px solid var(--border-300);
+    padding-top: 1.2em;
+  }
+  .timeline .phase {
+    border-left: 2px solid var(--accent-100);
+    padding-left: 0.8em;
+  }
+  .timeline .phase .when {
+    font-family: var(--font-ui);
+    font-size: 0.65em;
+    color: var(--accent-100);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.3em;
+  }
+  .timeline .phase h4 { font-size: 0.85em; margin: 0 0 0.4em; color: var(--text-000); }
+  .timeline .phase p { font-size: 0.6em; line-height: 1.45; margin: 0; }
 
-    /* ===== USE CASE CARDS ===== */
-    .usecase-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 10px;
-      padding: 0.7em;
-    }
-    .usecase-card .icon {
-      font-size: 1.4em;
-      margin-bottom: 0.15em;
-    }
-    .usecase-card h4 {
-      font-size: 0.85em;
-      font-weight: 700;
-      margin: 0 0 0.15em 0;
-      color: var(--white);
-    }
-    .usecase-card p {
-      font-size: 0.6em;
-      color: var(--muted);
-      margin: 0;
-      line-height: 1.35;
-    }
+  /* Níveis de dados — semáforo verde/amarelo/vermelho */
+  .levels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1em; margin-top: 1em; }
+  .levels .lv {
+    background: var(--bg-300);
+    border-radius: 10px;
+    padding: 1em 1em 1.1em;
+    border-left: 4px solid var(--border-300);
+  }
+  .levels .lv .dot {
+    display: inline-block;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 0.5em;
+  }
+  .levels .lv .label {
+    font-family: var(--font-ui);
+    font-size: 0.65em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-000);
+  }
+  .levels .lv h4 { font-size: 0.95em; margin: 0.5em 0 0.4em; color: var(--text-000); }
+  .levels .lv p { font-size: 0.62em; line-height: 1.5; margin: 0; color: var(--text-500); }
+  .lv-green { border-left-color: #16a34a; }
+  .lv-green .dot { background: #16a34a; }
+  .lv-amber { border-left-color: #d97706; }
+  .lv-amber .dot { background: #d97706; }
+  .lv-red   { border-left-color: #dc2626; }
+  .lv-red   .dot { background: #dc2626; }
 
-    /* ===== ROADMAP ITEMS ===== */
-    .roadmap-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.8em;
-      margin-bottom: 1em;
-    }
-    .roadmap-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      margin-top: 0.35em;
-      flex-shrink: 0;
-    }
-    .roadmap-item h4 {
-      margin: 0 0 0.15em 0;
-      font-size: 1em;
-      font-weight: 700;
-    }
-    .roadmap-item p {
-      margin: 0;
-      font-size: 0.8em;
-      color: var(--muted);
-    }
+  /* Faixas de pessoas (cultura) */
+  .faixas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1em; margin-top: 1em; }
+  .faixas .fx {
+    border: 1px solid var(--border-300);
+    background: var(--bg-100);
+    padding: 1em 1em 1.1em;
+    border-radius: 10px;
+  }
+  .faixas .fx .tag {
+    font-family: var(--font-ui);
+    font-size: 0.6em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-100);
+    font-weight: 700;
+  }
+  .faixas .fx h4 { font-size: 1em; margin: 0.4em 0; color: var(--text-000); }
+  .faixas .fx p { font-size: 0.62em; line-height: 1.5; margin: 0; color: var(--text-500); }
+  .faixas .fx .approach {
+    font-family: var(--font-ui);
+    font-size: 0.58em;
+    font-weight: 600;
+    margin-top: 0.6em;
+    padding-top: 0.6em;
+    border-top: 1px dashed var(--border-300);
+    color: var(--accent-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
 
-    /* ===== SECURITY CHAIN ===== */
-    .security-chain {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.3em;
-      margin: 1em 0;
-    }
-    .security-node {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 10px;
-      padding: 0.7em 1em;
-      text-align: center;
-      font-size: 0.8em;
-    }
-    .security-node.locked {
-      border-color: var(--coral);
-      background: rgba(255,90,95,0.08);
-    }
-    .security-node.open {
-      border-color: var(--teal);
-      background: rgba(0,166,153,0.08);
-    }
-    .security-arrow {
-      color: var(--muted);
-      font-size: 1.2em;
-    }
+  /* Escada de níveis de maturidade (fomento) */
+  .maturity { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.7em; margin-top: 1em; align-items: end; }
+  .maturity .stage {
+    background: var(--bg-300);
+    border-radius: 10px;
+    padding: 1em 0.9em 1em;
+    border-top: 3px solid var(--accent-100);
+    position: relative;
+  }
+  .maturity .stage.n1 { height: 65%; opacity: 0.8; }
+  .maturity .stage.n2 { height: 80%; opacity: 0.9; }
+  .maturity .stage.n3 { height: 92%; }
+  .maturity .stage.n4 { height: 100%; }
+  .maturity .stage .tier {
+    font-family: var(--font-ui);
+    font-size: 0.6em;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--accent-100);
+    text-transform: uppercase;
+  }
+  .maturity .stage h4 { font-size: 0.85em; margin: 0.3em 0 0.4em; color: var(--text-000); line-height: 1.1; }
+  .maturity .stage p { font-size: 0.58em; line-height: 1.45; margin: 0; color: var(--text-500); }
+  .maturity .stage .who {
+    font-family: var(--font-ui);
+    font-size: 0.55em;
+    margin-top: 0.6em;
+    padding-top: 0.5em;
+    border-top: 1px dashed var(--border-300);
+    color: var(--text-200);
+    font-weight: 600;
+  }
 
-    /* ===== CHALLENGE SECTION ===== */
-    .challenge-item {
-      margin-bottom: 1.2em;
-    }
-    .challenge-item h4 {
-      font-size: 0.95em;
-      font-weight: 700;
-      margin: 0 0 0.25em 0;
-    }
-    .challenge-item p {
-      font-size: 0.78em;
-      color: var(--muted);
-      margin: 0;
-      line-height: 1.6;
-    }
+  .cats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1em; margin-top: 1em; }
+  .cats .cat {
+    background: var(--bg-300);
+    padding: 1em 0.9em;
+    border-radius: 10px;
+    border: 1px solid var(--border-300);
+  }
+  .cats .cat .num {
+    font-family: var(--font-ui);
+    font-size: 0.7em;
+    font-weight: 700;
+    color: var(--accent-100);
+    letter-spacing: 0.08em;
+  }
+  .cats .cat h4 {
+    font-size: 0.85em;
+    margin: 0.4em 0 0.3em;
+    font-weight: 600;
+    color: var(--text-000);
+  }
+  .cats .cat p {
+    font-size: 0.55em;
+    line-height: 1.45;
+    margin: 0;
+    color: var(--text-500);
+  }
 
-    /* ===== MOCKUP FORM ===== */
-    .mockup-form {
-      background: #f3f4f6;
-      border-radius: 12px;
-      padding: 1em 1.2em;
-      color: #1f2937;
-      font-size: 0.55em;
-      max-width: 440px;
-      margin: 0 auto;
-      text-align: left;
-    }
-    .mockup-form .form-header {
-      background: #1e3a5f;
-      color: white;
-      padding: 0.6em 1em;
-      border-radius: 6px 6px 0 0;
-      margin: -1em -1.2em 0.6em -1.2em;
-      font-weight: 700;
-      font-size: 1em;
-    }
-    .mockup-field {
-      margin-bottom: 0.4em;
-    }
-    .mockup-field label {
-      display: block;
-      font-weight: 600;
-      color: #374151;
-      margin-bottom: 0.1em;
-      font-size: 0.85em;
-    }
-    .mockup-field .field-box {
-      background: white;
-      border: 1px solid #d1d5db;
-      border-radius: 4px;
-      padding: 0.35em;
-      color: #9ca3af;
-    }
-    .mockup-field select, .mockup-field .field-box.dropdown {
-      appearance: none;
-    }
-    .timer-display {
-      text-align: center;
-      margin-top: 0.4em;
-      font-size: 1.6em;
-      font-weight: 900;
-      font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    }
+  .closing {
+    text-align: center;
+  }
+  .closing h2 { font-size: 2.6em; max-width: 18ch; margin: 0 auto 0.8em; line-height: 1.15; }
+  .closing p { text-align: center; max-width: 30ch; margin: 0 auto; font-size: 1.1em; color: var(--text-200); }
 
-    /* ===== ICON BOX ===== */
-    .icon-box {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3em;
-      margin-bottom: 0.5em;
-    }
+  hr { border: 0; border-top: 1px solid var(--border-300); margin: 1em 0 1.2em; }
 
-    /* ===== MONOREPO VISUAL ===== */
-    .mono-app {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 10px;
-      padding: 0.8em;
-      text-align: center;
-    }
-    .mono-app .app-name {
-      font-weight: 700;
-      font-size: 0.9em;
-      margin-bottom: 0.2em;
-    }
-    .mono-app .app-tech {
-      font-size: 0.7em;
-      color: var(--muted);
-    }
+  .two-col { display: grid; grid-template-columns: 1fr 2fr; gap: 2em; align-items: start; }
+  .two-col .label { position: sticky; top: 0; }
 
-    /* ===== QR CORNER ===== */
-    .qr-corner {
-      position: absolute;
-      bottom: 1em;
-      right: 1em;
-      text-align: center;
-    }
-    .qr-corner img {
-      width: 80px;
-      height: 80px;
-      border-radius: 8px;
-      opacity: 0.7;
-    }
-    .qr-corner span {
-      display: block;
-      font-size: 0.45em;
-      color: var(--muted);
-      margin-top: 0.2em;
-    }
+  .global-footer {
+    position: fixed;
+    left: 2.2em;
+    bottom: 1em;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: var(--text-500);
+    letter-spacing: 0.02em;
+    z-index: 20;
+    pointer-events: none;
+    opacity: 0.85;
+  }
+  .global-footer .bar {
+    display: inline-block;
+    width: 14px; height: 2px;
+    background: var(--accent-100);
+    margin-right: 0.6em;
+    vertical-align: middle;
+  }
+  /* Esconde o footer nos slides de capa e fechamento */
+  body.hide-footer .global-footer { display: none; }
+  .footer-brand { display: none; }
 
-    /* ===== SLIDE SPECIFIC ===== */
-    .big-number {
-      font-size: 8em;
-      font-weight: 900;
-      line-height: 1;
-    }
-    .big-text {
-      font-size: 4em;
-      font-weight: 900;
-      line-height: 1.1;
-    }
-    .subtitle {
-      font-size: 1.1em;
-      color: var(--muted);
-      margin-top: 0.5em;
-    }
-
-    /* ===== LAYER CARDS ===== */
-    .layer-card {
-      background: rgba(255,255,255,0.04);
-      border-left: 3px solid var(--teal);
-      border-radius: 0 10px 10px 0;
-      padding: 0.8em 1.2em;
-      margin-bottom: 0.6em;
-    }
-    .layer-card h4 {
-      font-size: 0.95em;
-      font-weight: 700;
-      margin: 0 0 0.2em 0;
-    }
-    .layer-card p {
-      font-size: 0.75em;
-      color: var(--muted);
-      margin: 0;
-    }
-
-    /* ===== ER DIAGRAM ===== */
-    .er-entity {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 10px;
-      padding: 0.6em 0.8em;
-      text-align: center;
-      font-size: 0.8em;
-    }
-    .er-entity.primary {
-      border-color: var(--teal);
-      background: rgba(0,166,153,0.1);
-    }
-    .er-entity .entity-name {
-      font-weight: 800;
-      margin-bottom: 0.15em;
-    }
-    .er-entity .entity-detail {
-      font-size: 0.8em;
-      color: var(--muted);
-    }
-
-    /* ===== PROGRESS BAR ===== */
-    .reveal .progress { height: 3px; }
-    .reveal .progress span { background: var(--teal); }
-
-    /* ===== SLIDE NUMBERS ===== */
-    .reveal .slide-number {
-      font-size: 0.55em;
-      color: var(--muted);
-    }
-
-    /* ===== SPEAKER NOTES ===== */
-    .reveal .speaker-controls-notes .value {
-      font-size: 1.1em;
-      line-height: 1.6;
-    }
-
-    /* ===== PHISHING COMPARISON ===== */
-    .phishing-compare {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5em;
-      margin-top: 1em;
-    }
-    .phishing-box {
-      border-radius: 12px;
-      padding: 1.2em;
-      text-align: center;
-    }
-    .phishing-box.valid {
-      background: rgba(0,166,153,0.1);
-      border: 2px solid var(--teal);
-    }
-    .phishing-box.invalid {
-      background: rgba(255,90,95,0.1);
-      border: 2px solid var(--coral);
-    }
-    .phishing-box .verdict {
-      font-size: 1.8em;
-      margin-bottom: 0.2em;
-    }
-    .phishing-box .url-display {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7em;
-      padding: 0.3em 0.6em;
-      border-radius: 6px;
-      background: rgba(0,0,0,0.3);
-      display: inline-block;
-      margin-bottom: 0.5em;
-    }
-    .phishing-box p {
-      font-size: 0.75em;
-      color: var(--muted);
-      margin: 0;
-    }
-
-    /* ===== MOBILE RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      /* Grid stacking */
-      .two-col, .three-col, .four-col {
-        grid-template-columns: 1fr !important;
-        gap: 0.8em !important;
-      }
-      .five-col {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 0.5em !important;
-      }
-
-      /* Font size reductions */
-      .reveal h1 { font-size: 1.8em !important; }
-      .reveal h2 { font-size: 1.4em !important; }
-      .big-number { font-size: 4em; }
-      .big-text { font-size: 2.5em; }
-      .stat-card .number { font-size: 2.2em; }
-
-      /* Security chain → vertical */
-      .security-chain {
-        flex-direction: column;
-        gap: 0.5em;
-      }
-      .security-arrow {
-        transform: rotate(90deg);
-      }
-
-      /* Flow diagram → vertical */
-      .flow {
-        flex-direction: column;
-        gap: 0.4em;
-      }
-      .flow-arrow {
-        transform: rotate(90deg);
-        font-size: 1em;
-      }
-
-      /* Phishing compare → stack */
-      .phishing-compare {
-        grid-template-columns: 1fr;
-      }
-
-      /* Mockup form readable */
-      .mockup-form {
-        font-size: 0.7em;
-        max-width: 100%;
-      }
-
-      /* Compare table bigger text */
-      .compare-table {
-        font-size: 0.85em;
-      }
-
-      /* Slide 2 chaos channels — stack vertically */
-      .reveal section [style*="gap: 0.8em"][style*="justify-content: center"] {
-        flex-direction: column !important;
-        align-items: center !important;
-      }
-
-      /* Cards & boxes: ensure padding doesn't overflow */
-      .stat-card { padding: 1em 0.8em; }
-      .step-card { padding: 0.8em 0.6em; }
-      .usecase-card { padding: 0.5em; }
-      .layer-card { padding: 0.6em 0.8em; }
-      .arch-box { padding: 0.7em 0.9em; }
-    }
-  </style>
+  @media print {
+    .reveal { font-size: 24px; }
+  }
+</style>
 </head>
 <body>
-  <div class="reveal">
-    <div class="slides">
+<div class="global-footer"><span class="bar"></span>UniFECAF AI First</div>
+<div class="reveal">
+  <div class="slides">
 
-      <!-- ============================================================ -->
-      <!-- SLIDE 1: Abertura                                            -->
-      <!-- ============================================================ -->
-      <section data-background-color="#0f0f1a">
-        <div class="centered">
-          <h1 style="font-size: 3.5em; margin-bottom: 0.1em;">
-            <span style="color: var(--white);">Help</span><span class="coral">4</span><span class="teal">Me</span>
-          </h1>
-          <p style="font-size: 1.5em; color: var(--light); margin-top: 0.3em; margin-bottom: 0.2em; font-weight: 600;">
-            Helpdesk em <span class="teal" style="font-weight: 900;">15 segundos</span>.
-          </p>
-          <p style="font-size: 0.95em; color: var(--muted); margin-top: 0; font-weight: 400;">
-            Conectando quem precisa de ajuda a quem resolve.
-          </p>
-          <p style="font-size: 0.7em; color: var(--muted); margin-top: 2em;">
-            Pressione <kbd style="background:rgba(255,255,255,0.1); padding:0.15em 0.5em; border-radius:4px; font-size:0.9em;">S</kbd> para notas do apresentador
-          </p>
+    <!-- Capa -->
+    <section class="cover" data-state="no-footer">
+      <div class="kicker accent">UniFECAF · Diretoria de TI</div>
+      <h1>UniFECAF<br>AI First<span class="dot">.</span></h1>
+      <p class="lead" style="margin-top: 0.6em;">Apresentação à Liderança</p>
+      <div class="meta">Abril de 2026</div>
+    </section>
+
+    <!-- O que é -->
+    <section>
+      <div class="kicker">01 · O programa</div>
+      <h2>O que é?</h2>
+      <p class="lead">Um programa para transformar a UniFECAF em uma organização <strong>AI First</strong> — adoção ampla de IA em todo o backoffice, com responsabilidade sobre dados, processos e operação.</p>
+      <hr>
+      <p style="font-size: 0.9em; color: var(--text-500);">Três frentes permanentes operando em paralelo desde o dia um. Elas <strong>não terminam</strong> — são a nova forma de trabalhar.</p>
+    </section>
+
+    <!-- Três frentes -->
+    <section>
+      <div class="kicker">02 · Arquitetura</div>
+      <h2>As três frentes</h2>
+      <p style="font-size: 0.85em; color: var(--text-500); margin-bottom: 0.4em;">Começam juntas, continuam vivas, amadurecem em ritmo próprio.</p>
+      <div class="grid-3">
+        <div class="col">
+          <h3>Frente 01</h3>
+          <h4>Cultura AI First</h4>
+          <p>Desenvolvimento contínuo de pensamento estruturado, com IA como ferramenta. Sessões quinzenais com casos reais, desafios mensais, mentoria individual, comunidade interna. Não é curso de prompt.</p>
         </div>
-        <aside class="notes">
-          <strong>Tempo: ~1 min</strong><br>
-          Deixar o slide respirar. Não explicar nada ainda.<br><br>
-          "Boa tarde. Eu sou [nome] e nos próximos 20 minutos eu vou mostrar como transformar a experiência de quem precisa de ajuda — e de quem resolve."<br><br>
-          Pausa. Deixar o 15 segundos fazer o trabalho.<br>
-          "15 segundos. Guardem esse número."
-        </aside>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- SLIDE 2: Hook emocional - O problema hoje                    -->
-      <!-- ============================================================ -->
-      <section data-background-color="#0f0f1a">
-        <h2 style="font-size: 1.4em; margin-bottom: 0.5em;">
-          Estamos em 2026.<br>
-          <span class="muted">E é assim que você solicita ajuda.</span>
-        </h2>
-
-        <!-- Chaos channels -->
-        <div class="centered" style="margin-bottom: 0.8em;">
-          <div style="display: flex; gap: 0.6em; justify-content: center; flex-wrap: wrap;">
-            <div class="fragment fade-up" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,90,95,0.3); border-radius: 10px; padding: 0.4em 0.8em; text-align: center; min-width: 120px;">
-              <div style="font-size: 1.2em; margin-bottom: 0.1em;">💬</div>
-              <div style="font-size: 0.75em; font-weight: 600;">WhatsApp</div>
-              <div style="font-size: 0.6em; color: var(--muted);">"A impressora do 4o parou"</div>
-            </div>
-            <div class="fragment fade-up" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,90,95,0.3); border-radius: 10px; padding: 0.4em 0.8em; text-align: center; min-width: 120px;">
-              <div style="font-size: 1.2em; margin-bottom: 0.1em;">📧</div>
-              <div style="font-size: 0.75em; font-weight: 600;">E-mail</div>
-              <div style="font-size: 0.6em; color: var(--muted);">CC: ti@, facilities@, gestor...</div>
-            </div>
-            <div class="fragment fade-up" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,90,95,0.3); border-radius: 10px; padding: 0.4em 0.8em; text-align: center; min-width: 120px;">
-              <div style="font-size: 1.2em; margin-bottom: 0.1em;">📞</div>
-              <div style="font-size: 0.75em; font-weight: 600;">Telefone</div>
-              <div style="font-size: 0.6em; color: var(--muted);">Ramal 4200... aguarde...</div>
-            </div>
-            <div class="fragment fade-up" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,90,95,0.3); border-radius: 10px; padding: 0.4em 0.8em; text-align: center; min-width: 120px;">
-              <div style="font-size: 1.2em; margin-bottom: 0.1em;">🗣️</div>
-              <div style="font-size: 0.75em; font-weight: 600;">Verbal</div>
-              <div style="font-size: 0.6em; color: var(--muted);">"Alguém viu o técnico?"</div>
-            </div>
-          </div>
+        <div class="col">
+          <h3>Frente 02</h3>
+          <h4>Governança de Dados</h4>
+          <p>Fundação que viabiliza uso seguro de IA por qualquer pessoa. Classificação em três níveis, acesso controlado, catálogo documentado, auditoria ativa. Inclui os três princípios arquiteturais que protegem a empresa de dívida oculta.</p>
         </div>
-
-        <!-- Legacy forms (the "best case") -->
-        <div class="fragment fade-up centered">
-          <p style="color: var(--muted); font-size: 0.85em; margin-bottom: 0.6em;">E quando tem sistema, é isso:</p>
-          <div style="display: flex; gap: 0.5em; justify-content: center; flex-wrap: wrap;">
-            <div class="mockup-form" style="text-align: left; margin: 0; font-size: 0.45em; padding: 0.8em 1em;">
-              <div class="form-header">ServiceNow - Novo Chamado</div>
-              <div class="mockup-field">
-                <label>Categoria *</label>
-                <div class="field-box dropdown">Selecione uma categoria...</div>
-              </div>
-              <div class="mockup-field">
-                <label>Subcategoria *</label>
-                <div class="field-box dropdown">Selecione uma subcategoria...</div>
-              </div>
-              <div class="mockup-field">
-                <label>Prioridade *</label>
-                <div class="field-box dropdown">Selecione...</div>
-              </div>
-              <div class="mockup-field">
-                <label>Localização *</label>
-                <div class="field-box">Prédio A, Sala 412, Ala Norte...</div>
-              </div>
-              <div class="mockup-field">
-                <label>Descrição detalhada *</label>
-                <div class="field-box" style="height: 2em;">A impressora HP do 4o andar...</div>
-              </div>
-            </div>
-            <div class="mockup-form" style="text-align: left; margin: 0; font-size: 0.45em; padding: 0.8em 1em;">
-              <div class="form-header" style="background: #7248b9;">Google Forms - Solicitação de Suporte</div>
-              <div class="mockup-field">
-                <label>Seu e-mail *</label>
-                <div class="field-box">nome@empresa.com</div>
-              </div>
-              <div class="mockup-field">
-                <label>Tipo de problema *</label>
-                <div class="field-box dropdown">Selecione...</div>
-              </div>
-              <div class="mockup-field">
-                <label>Onde você está? *</label>
-                <div class="field-box">Descreva sua localização...</div>
-              </div>
-              <div class="mockup-field">
-                <label>Urgência *</label>
-                <div class="field-box dropdown">Baixa / Média / Alta / Crítica</div>
-              </div>
-              <div class="mockup-field">
-                <label>Descreva o problema *</label>
-                <div class="field-box" style="height: 2em;">O ar condicionado da sala...</div>
-              </div>
-            </div>
-          </div>
+        <div class="col">
+          <h3>Frente 03</h3>
+          <h4>Fomento & Sustentabilidade</h4>
+          <p>Quatro níveis de maturidade para soluções de IA, do sandbox pessoal à plataforma reutilizável. AI Champions em cada área. Prêmio trimestral como motor da frente.</p>
         </div>
+      </div>
+    </section>
 
-        <p class="fragment fade-up" style="text-align: center; color: var(--coral); font-weight: 700; font-size: 1.1em; margin-top: 0.8em;">
-          Resultado: a maior parte dos problemas nunca é reportada, e os que são, via de regra, demoram a ser resolvidos.
-        </p>
-
-        <aside class="notes">
-          <strong>Tempo: ~2 min</strong><br>
-          Ir revelando cada canal com tom de "a gente conhece essa realidade".<br><br>
-          "Imagina: o ar-condicionado da sala de reunião parou. O que você faz?"<br><br>
-          (revelando canais) "WhatsApp, e-mail, ramal, andar procurando."<br><br>
-          (forms aparecem) "E quando tem sistema? Pior ainda. Formulário atrás de formulário."<br><br>
-          (stat aparece) "A maior parte dos problemas nunca é reportada. E os que são, demoram demais. É perda de produtividade, de satisfação e de dinheiro — todo dia."
-        </aside>
-      </section>
-
-
-      <!-- ============================================================ -->
-      <!-- SLIDE 3: Os dois grandes problemas                          -->
-      <!-- ============================================================ -->
-      <section data-background-color="#0f0f1a" data-transition="fade">
-        <h2 class="centered" style="margin-bottom: 1.2em;">
-          <span class="muted">Dois lados do</span> <span class="coral">mesmo problema</span>
-        </h2>
-
-        <div class="two-col">
-          <!-- Left column: who needs help -->
-          <div class="fragment fade-up">
-            <h3 style="text-align: center; margin-bottom: 0.8em;">
-              <span class="coral">😩 Quem precisa de ajuda</span>
-            </h3>
-            <div class="challenge-item">
-              <h4 class="coral">Formulários longos e confusos</h4>
-              <p>Campos obrigatórios demais, categorias que não fazem sentido, UX que afasta</p>
-            </div>
-            <div class="challenge-item fragment fade-up">
-              <h4 class="coral">Fricção demais para reportar</h4>
-              <p>Tanto trabalho que a maioria simplesmente desiste de pedir ajuda</p>
-            </div>
-            <div class="challenge-item fragment fade-up">
-              <h4 class="coral">Logins, cadastros...</h4>
-              <p>Antes de pedir ajuda, tem que criar conta, lembrar senha, navegar menus</p>
-            </div>
-            <div class="challenge-item fragment fade-up">
-              <h4 class="coral">Zero visibilidade do status</h4>
-              <p>Não sabe se alguém viu, se alguém vai resolver, nem quando vai chegar</p>
-            </div>
-          </div>
-
-          <!-- Right column: the company -->
-          <div class="fragment fade-up">
-            <h3 style="text-align: center; margin-bottom: 0.8em;">
-              <span class="sunset">😰 A empresa</span>
-            </h3>
-            <div class="challenge-item">
-              <h4 class="sunset">Dados incompletos e dispersos</h4>
-              <p>Pedidos chegam por WhatsApp, e-mail, telefone — sem padrão nem registro</p>
-            </div>
-            <div class="challenge-item fragment fade-up">
-              <h4 class="sunset">Técnicos chegam no escuro</h4>
-              <p>Sem saber exatamente o quê, onde, nem a real urgência do problema</p>
-            </div>
-            <div class="challenge-item fragment fade-up">
-              <h4 class="sunset">Impossível medir performance</h4>
-              <p>Sem dados estruturados, não dá pra avaliar equipe nem identificar padrões</p>
-            </div>
-            <div class="challenge-item fragment fade-up">
-              <h4 class="sunset">Gestão no achismo</h4>
-              <p>Escalas, rotas e prioridades sem base em dados reais</p>
-            </div>
-          </div>
+    <!-- Frente 01 — Cultura AI First -->
+    <section>
+      <div class="kicker">02.1 · Frente 01</div>
+      <h2>Cultura AI First</h2>
+      <p style="font-size: 0.85em; color: var(--text-500); margin-bottom: 0.4em; max-width: 48ch;">Não é um curso de IA — é o <strong>desenvolvimento contínuo de pensamento estruturado</strong>, com IA como ferramenta. A frente reconhece três faixas de pessoas e aplica abordagens distintas.</p>
+      <div class="faixas">
+        <div class="fx">
+          <span class="tag">Faixa 01</span>
+          <h4>Naturais</h4>
+          <p>Já têm raciocínio de resolução de problemas. Adotam IA com pouco ou nenhum treino formal. Candidatas naturais ao papel de AI Champion.</p>
+          <div class="approach">Destravar & amplificar</div>
         </div>
-
-        <aside class="notes">
-          <strong>Tempo: ~1.5 min</strong><br>
-          "Esse cenário gera dois grandes problemas — um pra cada lado."<br><br>
-          (coluna esquerda aparece) "Formulários longos e confusos, tanta fricção que a maioria desiste, ainda precisa criar conta, lembrar senha... E depois? Zero visibilidade."<br><br>
-          (coluna direita aparece) "Pedidos por mil canais sem padrão, técnico sem contexto, impossível medir, gestão no achismo."<br><br>
-          "E se desse pra resolver os dois lados ao mesmo tempo?"
-        </aside>
-      </section>
-
-
-      <!-- ============================================================ -->
-      <!-- SLIDE 4: E se levasse 15 segundos?                          -->
-      <!-- ============================================================ -->
-      <section data-background-color="#0f0f1a" data-transition="fade">
-        <div class="centered">
-          <p class="muted" style="font-size: 1em; margin-bottom: 0.3em;">E se levasse...</p>
-          <div class="big-number teal" style="margin-bottom: 0.05em;">15<span style="font-size: 0.35em;">s</span></div>
-          <div style="margin-top: 1.5em;">
-            <div class="flow">
-              <div class="flow-step fragment fade-up">
-                <span style="font-size: 1.2em;">📱</span><br>
-                <span style="font-size: 0.85em;">Escaneie</span>
-              </div>
-              <div class="flow-arrow fragment fade-up">&rarr;</div>
-              <div class="flow-step fragment fade-up">
-                <span style="font-size: 1.2em;">📋</span><br>
-                <span style="font-size: 0.85em;">Selecione</span>
-              </div>
-              <div class="flow-arrow fragment fade-up">&rarr;</div>
-              <div class="flow-step fragment fade-up">
-                <span style="font-size: 1.2em;">🔔</span><br>
-                <span style="font-size: 0.85em;">Técnico recebe</span>
-              </div>
-              <div class="flow-arrow fragment fade-up">&rarr;</div>
-              <div class="flow-step fragment fade-up">
-                <span style="font-size: 1.2em;">✅</span><br>
-                <span style="font-size: 0.85em;">Ajuda a caminho</span>
-              </div>
-            </div>
-          </div>
+        <div class="fx">
+          <span class="tag">Faixa 02</span>
+          <h4>Desenvolvíveis</h4>
+          <p>Têm potencial mas travam (medo de errar, não sabem por onde começar). Beneficiam-se de mentoria prática individual sobre problemas reais.</p>
+          <div class="approach">Mentoria individual</div>
         </div>
-        <aside class="notes">
-          <strong>Tempo: ~30s</strong><br>
-          Slide de transição. Impacto visual.<br><br>
-          "E se levasse 15 segundos? Sem login. Sem formulário. Sem treinamento."<br><br>
-          "Escaneie. Selecione o problema. O técnico certo recebe na hora. Ajuda a caminho."<br><br>
-          "Deixa eu mostrar como."
-        </aside>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- SLIDE 5: Quatro passos. Zero fricção.                        -->
-      <!-- ============================================================ -->
-      <section data-background-color="#0f0f1a">
-        <h2 style="margin-bottom: 0.8em;">Quatro passos. <span class="teal">Zero fricção.</span></h2>
-        <div class="four-col" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1em;">
-          <div class="step-card fragment fade-up">
-            <div class="step-num teal">1</div>
-            <div class="step-title">Escanear</div>
-            <div style="font-size: 0.75em;">QR Code com contexto</div>
-            <div style="font-size: 1.5em; margin-top: auto; padding-top: 0.4em;">📱</div>
-          </div>
-          <div class="step-card fragment fade-up">
-            <div class="step-num teal">2</div>
-            <div class="step-title">Selecionar</div>
-            <div style="font-size: 0.75em;">Área de ajuda &rsaquo; problema</div>
-            <div style="font-size: 1.5em; margin-top: auto; padding-top: 0.4em;">🏷️</div>
-          </div>
-          <div class="step-card fragment fade-up">
-            <div class="step-num teal">3</div>
-            <div class="step-title">Quem chama?</div>
-            <div style="font-size: 0.75em;">Dois campos</div>
-            <div style="font-size: 1.5em; margin-top: auto; padding-top: 0.4em;">✏️</div>
-          </div>
-          <div class="step-card fragment fade-up">
-            <div class="step-num teal">4</div>
-            <div class="step-title">Pronto!</div>
-            <div style="font-size: 0.75em;">Ticket criado e encaminhado</div>
-            <div style="font-size: 1.5em; margin-top: auto; padding-top: 0.4em;">✅</div>
-          </div>
+        <div class="fx">
+          <span class="tag">Faixa 03</span>
+          <h4>Não vão adotar</h4>
+          <p>Por escolha ou postura. A UniFECAF é AI First por direção institucional — a oportunidade é oferecida, mas permanecer fora desse movimento limita diretamente as possibilidades de crescimento dentro da empresa.</p>
+          <div class="approach">Direção institucional</div>
         </div>
-        <div class="fragment fade-up centered" style="margin-top: 1.5em;">
-          <p style="font-size: 0.85em;">
-            <span class="muted">Sem login.</span> &nbsp;
-            <span class="muted">Sem treinamento.</span> &nbsp;
-            <span class="muted">Sem app pra instalar.</span>
-          </p>
-          <p style="font-size: 0.8em; color: var(--teal); font-weight: 600;">
-            Conta criada automaticamente &bull; Otimizado para qualquer smartphone
-          </p>
+      </div>
+      <hr>
+      <p style="font-size: 0.7em; color: var(--text-500);">Componentes contínuos: <strong>sessões quinzenais</strong> com casos reais (ensinar a pensar em voz alta), <strong>desafios mensais</strong> por área, <strong>comunidade interna ativa</strong> e <strong>mentoria individual seletiva</strong> para a Faixa 02.</p>
+    </section>
+
+    <!-- Frente 02 — Governança de Dados -->
+    <section>
+      <div class="kicker">02.2 · Frente 02</div>
+      <h2>Governança de Dados</h2>
+      <p style="font-size: 0.85em; color: var(--text-500); margin-bottom: 0.4em; max-width: 42ch;">Fundação que viabiliza o uso seguro de IA por qualquer pessoa. Começa pelo essencial: uma <strong>política de classificação de dados em três níveis</strong>.</p>
+      <div class="levels">
+        <div class="lv lv-green">
+          <span class="dot"></span><span class="label">Verde</span>
+          <h4>Dado agregado ou não-sensível</h4>
+          <p>Pode ser usado livremente em qualquer ferramenta de IA aprovada. Indicadores consolidados, relatórios públicos, conteúdo institucional.</p>
         </div>
-        <aside class="notes">
-          <strong>Tempo: ~1.5 min</strong><br>
-          Ir revelando cada passo.<br><br>
-          "Quatro passos. É isso que separa um problema de uma solução a caminho."<br><br>
-          "1. QR code — o contexto é automático. Onde está, qual equipamento, tudo detectado."<br>
-          "2. Área de ajuda e tipo de problema — TI, Manutenção, Limpeza. Templates prontos ou texto livre."<br>
-          "3. Nome e telefone — dois campos. Só isso."<br>
-          "4. Pronto — ticket criado e encaminhado pro técnico certo."<br><br>
-          "Sem login. Sem cadastro prévio. Funciona direto no navegador."<br><br>
-          "Agora deixa eu mostrar isso funcionando de verdade."
-        </aside>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- DEMO #1: QR Workflow                                         -->
-      <!-- ============================================================ -->
-      <section data-background-color="#0f0f1a" data-transition="fade">
-        <div class="centered">
-          <div class="demo-badge">DEMO AO VIVO #1</div>
-          <h2 style="margin-bottom: 0.5em;">QR Scan &rarr; Ticket</h2>
-          <p class="muted" style="font-size: 0.9em; margin-bottom: 1.5em;">
-            Workflow completo, ponta a ponta.
-          </p>
-          <div class="demo-url">https://h4m.io/qr/AST-FPTX2H-1</div>
-          <br>
-          <a href="#/6" class="skip-link">pular demo &rarr;</a>
+        <div class="lv lv-amber">
+          <span class="dot"></span><span class="label">Amarelo</span>
+          <h4>Dado operacional interno</h4>
+          <p>Só em ferramentas corporativas aprovadas e com registro de uso. Informações de processos, métricas internas, bases operacionais.</p>
         </div>
-        <aside class="notes">
-          <strong>Tempo: ~2-3 min (demo)</strong><br><br>
-          <strong>CHECKLIST PRÉ-DEMO:</strong><br>
-          - Abrir https://h4m.io/qr/AST-FPTX2H-1 no celular<br>
-          - Ou escanear o QR code projetado<br>
-          - Timer pronto no celular<br><br>
-          <strong>ROTEIRO:</strong><br>
-          "Vou fazer ao vivo. Esse é um QR code real, apontando pra um equipamento real em produção."<br><br>
-          1. Abrir o link / escanear<br>
-          2. "Vejam: o sistema já sabe onde estou e qual equipamento. Contexto automático."<br>
-          3. Selecionar área de ajuda<br>
-          4. Descrever o problema<br>
-          5. Enviar<br>
-          6. "Quanto tempo? [mostrar timer]"<br><br>
-          "Menos de 15 segundos. Sem login. Sem treinamento. Qualquer pessoa consegue fazer isso."
-        </aside>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- SLIDE 7: Tempo real de verdade                               -->
-      <!-- ============================================================ -->
-      <section data-background-color="#0f0f1a">
-        <h2 style="margin-bottom: 1em;">Tempo real <span class="teal">de verdade</span></h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em;">
-          <div class="step-card fragment fade-up">
-            <div class="step-title" style="color: var(--teal);">Atualizações instantâneas</div>
-            <div style="font-size: 0.75em;">Qualquer mudança no ticket aparece na tela de todos os envolvidos, sem recarregar.</div>
-            <div style="font-size: 1.5em; margin-top: auto; padding-top: 0.4em;">⚡</div>
-          </div>
-          <div class="step-card fragment fade-up">
-            <div class="step-title" style="color: var(--teal);">Notificações push</div>
-            <div style="font-size: 0.75em;">Técnico recebe alerta direto no celular. Sem precisar ficar olhando o sistema.</div>
-            <div style="font-size: 1.5em; margin-top: auto; padding-top: 0.4em;">🔔</div>
-          </div>
-          <div class="step-card fragment fade-up">
-            <div class="step-title" style="color: var(--teal);">Acompanhamento sem login</div>
-            <div style="font-size: 0.75em;">Quem abriu o chamado recebe um link único pra acompanhar o status em tempo real.</div>
-            <div style="font-size: 1.5em; margin-top: auto; padding-top: 0.4em;">🔗</div>
-          </div>
-          <div class="step-card fragment fade-up">
-            <div class="step-title" style="color: var(--teal);">Dados isolados por empresa</div>
-            <div style="font-size: 0.75em;">Cada empresa só vê seus próprios dados. Isolamento total, sem risco de vazamento.</div>
-            <div style="font-size: 1.5em; margin-top: auto; padding-top: 0.4em;">🔒</div>
-          </div>
+        <div class="lv lv-red">
+          <span class="dot"></span><span class="label">Vermelho</span>
+          <h4>Dado pessoal, financeiro ou acadêmico sensível</h4>
+          <p>Só em fluxos aprovados pela TI, com revisão formal. Dados de aluno, financeiro detalhado, histórico acadêmico sensível.</p>
         </div>
-        <aside class="notes">
-          <strong>Tempo: ~1.5 min</strong><br><br>
-          "Quando eu falo tempo real, é tempo real de verdade. Não é 'atualiza a cada 30 segundos'. É instantâneo."<br><br>
-          "Qualquer mudança no ticket aparece na hora na tela de todo mundo envolvido."<br><br>
-          "O técnico recebe push notification direto no celular — não precisa ficar olhando o sistema."<br><br>
-          "E quem abriu o chamado? Recebe um link único pra acompanhar, sem precisar de login."<br><br>
-          "E tudo com isolamento total — cada empresa só vê seus próprios dados."
-        </aside>
-      </section>
+      </div>
+      <hr>
+      <p style="font-size: 0.7em; color: var(--text-500);">Complementa a classificação: camada de acesso controlado, catálogo de dados documentado, log e auditoria de consumo, processo claro de solicitação de acesso e <strong>três princípios arquiteturais</strong> (fonte única de verdade, ações centralizadas, pessoal × de área).</p>
+    </section>
 
-      <!-- ============================================================ -->
-      <!-- SLIDE 8: Modo OFFER - Uber pro seu time                      -->
-      <!-- ============================================================ -->
-      <section data-background-color="#0f0f1a">
-        <h2 style="font-size: 1.6em; margin-bottom: 0.8em;">
-          Modo OFFER<br>
-          <span class="muted" style="font-size: 0.6em;">Tipo Uber, mas pro seu time de campo.</span>
-        </h2>
-        <div class="two-col">
-          <div style="font-size: 0.85em;">
-            <div class="fragment fade-up" style="margin-bottom: 1em;">
-              <h4 style="color: var(--teal); margin: 0 0 0.3em;">1. Ticket chega</h4>
-              <p class="muted" style="margin: 0;">Assignment Engine identifica técnicos elegíveis por <strong>localização</strong> e <strong>área de ajuda</strong>.</p>
-            </div>
-            <div class="fragment fade-up" style="margin-bottom: 1em;">
-              <h4 style="color: var(--teal); margin: 0 0 0.3em;">2. Oferta em cascata</h4>
-              <p class="muted" style="margin: 0;">Envia para o técnico mais adequado. <strong>60 segundos</strong> pra aceitar. Se recusar ou expirar, vai pro próximo.</p>
-            </div>
-            <div class="fragment fade-up" style="margin-bottom: 1em;">
-              <h4 style="color: var(--sunset); margin: 0 0 0.3em;">3. Limites de capacidade</h4>
-              <p class="muted" style="margin: 0;">Cada técnico tem um <strong>max de tickets simultâneos</strong> por empresa. Respeita carga de trabalho.</p>
-            </div>
-            <div class="fragment fade-up">
-              <h4 style="color: var(--coral); margin: 0 0 0.3em;">4. Audit trail completo</h4>
-              <p class="muted" style="margin: 0;">Quem recebeu, quando, se aceitou ou recusou. <strong>Tudo registrado.</strong></p>
-            </div>
-          </div>
-          <div class="centered fragment fade-up">
-            <div style="background: rgba(255,255,255,0.03); border-radius: 16px; padding: 1.5em; border: 1px solid rgba(255,255,255,0.08);">
-              <p style="font-size: 0.7em; color: var(--muted); margin: 0 0 0.5em;">Fluxo do OFFER</p>
-              <div style="font-size: 0.8em; line-height: 2.2;">
-                <div>📩 Ticket criado</div>
-                <div style="color: var(--muted);">↓</div>
-                <div>👤 Técnico A recebe oferta</div>
-                <div style="color: var(--muted);">↓ <span style="font-size: 0.8em;">60s timeout</span></div>
-                <div style="color: var(--coral);">✕ Recusou / Expirou</div>
-                <div style="color: var(--muted);">↓</div>
-                <div>👤 Técnico B recebe oferta</div>
-                <div style="color: var(--muted);">↓</div>
-                <div style="color: var(--teal);">✓ Aceitou! Em andamento.</div>
-              </div>
-            </div>
-          </div>
+    <!-- Frente 03 — Fomento & Sustentabilidade -->
+    <section>
+      <div class="kicker">02.3 · Frente 03</div>
+      <h2>Fomento & Sustentabilidade</h2>
+      <p style="font-size: 0.85em; color: var(--text-500); margin-bottom: 0.4em; max-width: 50ch;">Quatro níveis de maturidade definem o caminho de qualquer solução de IA — do sandbox pessoal à plataforma reutilizável.</p>
+      <div class="maturity">
+        <div class="stage n1">
+          <span class="tier">Nível 01</span>
+          <h4>Sandbox pessoal</h4>
+          <p>Uso individual, zero integração com sistemas. Liberdade total, risco zero.</p>
+          <div class="who">Qualquer pessoa</div>
         </div>
-        <aside class="notes">
-          <strong>Tempo: ~1.5 min</strong><br><br>
-          "O modo OFFER funciona como o Uber. O ticket chega, o sistema identifica os técnicos elegíveis — por localização e especialidade."<br><br>
-          "Envia pro mais adequado primeiro. Ele tem 60 segundos pra aceitar. Se não aceitar, vai pro próximo na fila. Cascata."<br><br>
-          "Cada técnico tem um limite de capacidade — quantos tickets ele pode ter abertos ao mesmo tempo, por empresa. Respeita a carga de trabalho."<br><br>
-          "E tudo fica registrado. Quem recebeu, quando, se aceitou ou recusou. Rastreabilidade total."
-        </aside>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- SLIDE 10: Segurança por herança                              -->
-      <!-- ============================================================ -->
-      <section data-background-color="#0f0f1a">
-        <h2 style="font-size: 1.4em; margin-bottom: 1em;">
-          Controle para quem precisa, onde precisa, <span class="teal">no nível que precisa</span>.
-        </h2>
-
-        <div class="two-col" style="align-items: start;">
-          <!-- Left: hierarchy chain (vertical) -->
-          <div class="fragment fade-up">
-            <p class="muted" style="font-size: 0.8em; margin-bottom: 0.8em;">Segurança por herança — cada nível pode sobrescrever:</p>
-            <div style="display: flex; flex-direction: column; gap: 0.5em;">
-              <div class="security-node" style="display: flex; align-items: center; gap: 0.8em; padding: 0.6em 1em;">
-                <span style="font-size: 1.2em;">🏢</span>
-                <div>
-                  <div style="font-weight: 700;">Empresa</div>
-                  <div style="font-size: 0.7em; color: var(--muted);">Define o padrão geral</div>
-                </div>
-              </div>
-              <div style="padding-left: 1.5em; color: var(--muted);">↓</div>
-              <div class="security-node open" style="display: flex; align-items: center; gap: 0.8em; padding: 0.6em 1em;">
-                <span style="font-size: 1.2em;">🏬</span>
-                <div>
-                  <div style="font-weight: 700;">Prédio <span class="teal" style="font-size: 0.8em;">ABERTO</span></div>
-                  <div style="font-size: 0.7em; color: var(--muted);">Qualquer pessoa abre chamado</div>
-                </div>
-              </div>
-              <div style="padding-left: 1.5em; color: var(--muted);">↓</div>
-              <div class="security-node open" style="display: flex; align-items: center; gap: 0.8em; padding: 0.6em 1em;">
-                <span style="font-size: 1.2em;">🚪</span>
-                <div>
-                  <div style="font-weight: 700;">Sala <span class="teal" style="font-size: 0.8em;">herda: ABERTO</span></div>
-                  <div style="font-size: 0.7em; color: var(--muted);">Segue o padrão do prédio</div>
-                </div>
-              </div>
-              <div style="padding-left: 1.5em; color: var(--muted);">↓</div>
-              <div class="security-node locked" style="display: flex; align-items: center; gap: 0.8em; padding: 0.6em 1em;">
-                <span style="font-size: 1.2em;">🖥️</span>
-                <div>
-                  <div style="font-weight: 700;">Equipamento <span class="coral" style="font-size: 0.8em;">RESTRITO 🔒</span></div>
-                  <div style="font-size: 0.7em; color: var(--muted);">Sobrescreve — exige verificação</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right: the two modes -->
-          <div>
-            <div class="step-card fragment fade-up" style="margin-bottom: 1em; text-align: left;">
-              <div class="step-title" style="color: var(--teal);">Modo Aberto</div>
-              <div style="font-size: 0.75em;">Qualquer pessoa escaneia o QR e abre chamado. Para quem precisa de liberdade e agilidade.</div>
-              <div style="font-size: 1.5em; margin-top: auto; padding-top: 0.4em;">🔓</div>
-            </div>
-            <div class="step-card fragment fade-up" style="text-align: left;">
-              <div class="step-title" style="color: var(--coral);">Modo Restrito</div>
-              <div style="font-size: 0.75em;">Requer verificação. 4 métodos combináveis:</div>
-              <div style="font-size: 0.8em; color: var(--light); margin-top: 0.4em;">Email &bull; SMS &bull; Passkey &bull; GPS</div>
-              <div style="font-size: 1.5em; margin-top: auto; padding-top: 0.4em;">🔒</div>
-            </div>
-          </div>
+        <div class="stage n2">
+          <span class="tier">Nível 02</span>
+          <h4>Solução local de área</h4>
+          <p>Automação usando dados verdes/amarelos, ambiente segregado, registrada no catálogo.</p>
+          <div class="who">Área + AI Champion</div>
         </div>
-        <aside class="notes">
-          <strong>Tempo: ~1 min</strong><br><br>
-          "Segurança não é tudo ou nada. O lobby do prédio pode ser aberto — qualquer pessoa escaneia o QR e abre um chamado. Mas a sala de servidores? Restrita."<br><br>
-          "A herança funciona assim: a empresa define o padrão. Cada nível abaixo — prédio, sala, equipamento — pode sobrescrever."<br><br>
-          "E no modo restrito, temos 4 métodos de verificação combináveis: email, SMS, passkey, e GPS. Você pode exigir um, dois, ou todos ao mesmo tempo."<br><br>
-          "Segurança granular sem sacrificar a agilidade."
-        </aside>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- DEMO #2: Backoffice Tour                                     -->
-      <!-- ============================================================ -->
-      <section data-background-color="#0f0f1a" data-transition="fade">
-        <div class="centered">
-          <div class="demo-badge">DEMO AO VIVO #2</div>
-          <h2 style="margin-bottom: 0.5em;">Tour pelo Backoffice</h2>
-          <p class="muted" style="font-size: 0.9em; margin-bottom: 1em;">
-            Dashboard do Company Owner &bull; Locais &bull; Matriz de cobertura &bull; Visão do técnico
-          </p>
-          <div class="demo-url">https://hub.help4me.app</div>
-          <br>
-          <a href="#/12" class="skip-link">pular demo &rarr;</a>
+        <div class="stage n3">
+          <span class="tier">Nível 03</span>
+          <h4>Solução promovida</h4>
+          <p>Provou valor, precisa escalar. Aqui a TI assume — autor continua dono do caso de uso.</p>
+          <div class="who">TI + autor da v1</div>
         </div>
-        <aside class="notes">
-          <strong>Tempo: ~3-4 min (demo)</strong><br><br>
-          "Vocês viram como é simples pra quem pede ajuda. Agora vou mostrar o outro lado — a gestão."<br><br>
-          <strong>CHECKLIST PRÉ-DEMO:</strong><br>
-          - Abrir https://hub.help4me.app logado como Company Owner<br>
-          - Ter tabs prontas: Dashboard, Locais, Cobertura, Técnico<br><br>
-          <strong>ROTEIRO:</strong><br>
-          1. "Esse é o backoffice. Onde a gestão acontece."<br>
-          2. Dashboard do CO: KPIs, tickets por status, tempo médio<br>
-          3. Locais: hierarquia de prédios, salas e equipamentos<br>
-          4. Matriz de cobertura: quem atende o quê e onde<br>
-          5. Trocar pro dashboard do técnico: "Agora olha a visão do técnico"<br>
-          6. Mostrar ofertas, tickets ativos, capacidade<br><br>
-          "Cada papel tem a visão que precisa. Sem ruído."
-        </aside>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- SLIDE 11: QR Anti-Phishing                                   -->
-      <!-- ============================================================ -->
-      <section data-background-color="#0f0f1a">
-        <h2 style="font-size: 1.5em; margin-bottom: 0.3em;">
-          QR codes têm um problema de <span class="coral">confiança</span>.
-        </h2>
-        <p class="muted" style="font-size: 0.9em; margin-bottom: 1em;">A gente resolveu.</p>
-        <div class="phishing-compare fragment fade-up">
-          <div class="phishing-box valid">
-            <div class="verdict">✅</div>
-            <div class="url-display">h4m.io/qr/AST-FPTX2H-1</div>
-            <p><strong style="color: var(--teal);">Domínio verificado</strong><br>
-            Scanner PWA valida contra allowlist.<br>Segue em frente com segurança.</p>
-          </div>
-          <div class="phishing-box invalid">
-            <div class="verdict">🚫</div>
-            <div class="url-display">h4m-support.fake.com/qr/...</div>
-            <p><strong style="color: var(--coral);">Phishing detectado</strong><br>
-            Domínio não reconhecido.<br>Usuário é alertado imediatamente.</p>
-          </div>
+        <div class="stage n4">
+          <span class="tier">Nível 04</span>
+          <h4>Plataforma</h4>
+          <p>Solução madura virando componente reutilizável da plataforma interna.</p>
+          <div class="who">TI · reuso</div>
         </div>
-        <div class="fragment fade-up centered" style="margin-top: 1.2em;">
-          <p style="font-size: 0.85em;">
-            <span class="teal" style="font-weight: 700;">Scanner PWA</span>
-            <span class="muted"> &mdash; App dedicado em </span>
-            <span style="font-family: monospace; color: var(--light);">scan.h4m.io</span>
-          </p>
-          <p style="font-size: 0.75em; color: var(--muted);">
-            Instala como app. Valida antes de abrir. Protege contra QR codes adulterados.
-          </p>
+      </div>
+      <hr>
+      <p style="font-size: 0.7em; color: var(--text-500);"><strong>AI Champions</strong> em cada área aprovam o Nível 2 e indicam candidatos à promoção. O <strong>Prêmio trimestral</strong> é o motor ativo da frente. Sustentação do Nível 2 exige catálogo de componentes autosserviço, canal único de suporte e checklist leve de pronto para produção.</p>
+    </section>
+
+    <!-- Categorias -->
+    <section>
+      <div class="kicker">03 · Taxonomia</div>
+      <h2>Categorias de solução</h2>
+      <p style="font-size: 0.85em; color: var(--text-500); margin-bottom: 0.4em;">Toda solução de IA na UniFECAF se encaixa em uma das cinco categorias.</p>
+      <div class="cats">
+        <div class="cat"><div class="num">01</div><h4>Cobrança & Recuperação</h4><p>Gestão de inadimplência e recuperação de receita.</p></div>
+        <div class="cat"><div class="num">02</div><h4>Retenção & Anti-evasão</h4><p>Previsão e prevenção de evasão de alunos.</p></div>
+        <div class="cat"><div class="num">03</div><h4>Atendimento & Serviços</h4><p>Automação de primeira linha e apoio à secretaria.</p></div>
+        <div class="cat"><div class="num">04</div><h4>Captação & Comercial</h4><p>Aquisição, conversão e jornada do candidato.</p></div>
+        <div class="cat"><div class="num">05</div><h4>Eficiência Operacional</h4><p>Guarda-chuva para dores repetitivas das áreas meio.</p></div>
+      </div>
+      <hr>
+      <p style="font-size: 0.75em; color: var(--text-500);">A taxonomia organiza, comunica e analisa as soluções. <strong>Não</strong> cria cotas de premiação. Novas categorias entram quando a empresa identifica novas fronteiras.</p>
+    </section>
+
+    <!-- Prêmio -->
+    <section>
+      <div class="kicker">04 · Reconhecimento</div>
+      <h2>Prêmio de Inovação em IA</h2>
+      <div class="two-col">
+        <div class="label">
+          <h3>Filosofia</h3>
+          <p style="font-size: 1.5em; line-height: 1.1; font-weight: 700; color: var(--accent-secondary); font-family: var(--font-ui); letter-spacing: -0.02em;">Mérito,<br>não cota.</p>
         </div>
-        <aside class="notes">
-          <strong>Tempo: ~1 min</strong><br><br>
-          "QR codes têm um problema: você não sabe pra onde vão antes de escanear. E se alguém cola um QR falso por cima do verdadeiro?"<br><br>
-          "O Help4Me tem um scanner próprio que verifica se o QR é legítimo antes de abrir. Se o domínio não bater — phishing detectado, o usuário é alertado na hora."<br><br>
-          "Segurança que funciona sem o usuário nem perceber."
-        </aside>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- SLIDE 13: Tech boring. Execução excepcional.                 -->
-      <!-- ============================================================ -->
-      <section data-background-color="#0f0f1a">
-        <h2 style="margin-bottom: 0.3em;">Tech boring. <span class="teal">Execução excepcional.</span></h2>
-        <p class="muted" style="font-size: 0.85em; margin-bottom: 1em;">"Escolhemos produtividade, não hype."</p>
-        <div class="two-col">
-          <div>
-            <table class="tech-table">
-              <tr class="fragment fade-up"><td>Backend</td><td>Flask + SQLAlchemy + JWT</td></tr>
-              <tr class="fragment fade-up"><td>Frontend</td><td>SvelteKit + TypeScript + TailwindCSS</td></tr>
-              <tr class="fragment fade-up"><td>Backoffice</td><td>Next.js + TypeScript</td></tr>
-              <tr class="fragment fade-up"><td>Real-time</td><td>Socket.IO + eventlet + Redis</td></tr>
-              <tr class="fragment fade-up"><td>Database</td><td>PostgreSQL</td></tr>
-              <tr class="fragment fade-up"><td>Cache/PubSub</td><td>Redis</td></tr>
-              <tr class="fragment fade-up"><td>Infra</td><td>Docker + nginx</td></tr>
-              <tr class="fragment fade-up"><td>Monorepo</td><td>Turborepo + npm workspaces</td></tr>
-              <tr class="fragment fade-up"><td>Push</td><td>VAPID nativo (sem Firebase)</td></tr>
-            </table>
-          </div>
-          <div class="fragment fade-up">
-            <blockquote style="font-size: 0.85em;">
-              "Nenhuma tecnologia aqui foi escolhida pra impressionar em conferência. Cada uma foi escolhida porque resolve o problema e a gente domina."
-            </blockquote>
-            <div style="margin-top: 1.5em;">
-              <div class="layer-card" style="border-color: var(--sunset);">
-                <h4 style="font-size: 0.9em;">Push sem Firebase</h4>
-                <p>VAPID web push nativo. Sem SDK do Google. Sem dependência. Sem custo por notificação.</p>
-              </div>
-            </div>
-          </div>
+        <div>
+          <p>Soluções são premiadas se e quando merecerem, por critério consciente do comitê julgador.</p>
+          <p>Edições podem ter muitas premiações, poucas ou nenhuma em determinada categoria.</p>
+          <p><strong>Premiar por enchimento destrói o valor simbólico do prêmio;</strong> manter o critério mesmo em edições magras reforça a credibilidade.</p>
+          <hr>
+          <p style="font-size: 0.75em; color: var(--text-500);">Critérios-âncora: dor mensurada antes, solução em uso 30+ dias, ganho validado por AI Champion ou gestor, replicabilidade.</p>
         </div>
-        <aside class="notes">
-          <strong>Tempo: ~1.5 min</strong><br><br>
-          "Tecnologia simples. Resultado excepcional."<br><br>
-          "Esse é o nosso stack. Nada exótico. Flask, SvelteKit, Next.js, PostgreSQL, Redis. Cada tecnologia foi escolhida porque resolve o problema e a gente domina."<br><br>
-          "Um destaque: push notifications. A maioria depende do Google pra entregar notificação. A gente faz direto, sem intermediário. Sem custo por notificação. Sem depender de ninguém."<br><br>
-          "Tecnologia simples. Resultado excepcional."
-        </aside>
-      </section>
+      </div>
+    </section>
 
-      <!-- ============================================================ -->
-      <!-- SLIDE 14: Outros vs. Nós                                     -->
-      <!-- ============================================================ -->
-      <section data-background-color="#0f0f1a">
-        <h2 style="margin-bottom: 0.8em;">Outros vs. <span class="teal">Nós</span></h2>
-        <table class="compare-table">
-          <thead>
-            <tr>
-              <th class="col-feature"></th>
-              <th class="col-them">ServiceNow / Zendesk</th>
-              <th class="col-us">Help4Me</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="fragment fade-up">
-              <td class="col-feature">Tempo pra abrir ticket</td>
-              <td class="col-them">3-7 minutos</td>
-              <td class="col-us">&lt; 15 segundos</td>
-            </tr>
-            <tr class="fragment fade-up">
-              <td class="col-feature">Contexto de localização</td>
-              <td class="col-them">Digitado manualmente</td>
-              <td class="col-us">Automático via QR code</td>
-            </tr>
-            <tr class="fragment fade-up">
-              <td class="col-feature">Experiência mobile</td>
-              <td class="col-them">Responsive web (desktop first)</td>
-              <td class="col-us">Mobile-first PWA</td>
-            </tr>
-            <tr class="fragment fade-up">
-              <td class="col-feature">Cadastro do usuário</td>
-              <td class="col-them">Pré-cadastro obrigatório</td>
-              <td class="col-us">Conta criada na hora</td>
-            </tr>
-            <tr class="fragment fade-up">
-              <td class="col-feature">Multi-empresa</td>
-              <td class="col-them">Instâncias separadas</td>
-              <td class="col-us">UserCompanyRole nativo</td>
-            </tr>
-            <tr class="fragment fade-up">
-              <td class="col-feature">Roteamento inteligente</td>
-              <td class="col-them">Regras estáticas / filas</td>
-              <td class="col-us">3 modos de roteamento inteligente</td>
-            </tr>
-            <tr class="fragment fade-up">
-              <td class="col-feature">Tempo real</td>
-              <td class="col-them">Polling / webhook</td>
-              <td class="col-us">WebSocket &lt;100ms</td>
-            </tr>
-            <tr class="fragment fade-up">
-              <td class="col-feature">Implementação</td>
-              <td class="col-them">3-6 meses + consultoria</td>
-              <td class="col-us">Semanas, não meses</td>
-            </tr>
-          </tbody>
-        </table>
-        <aside class="notes">
-          <strong>Tempo: ~2 min</strong><br><br>
-          Ir revelando cada linha. Dar um segundo de pausa em cada.<br><br>
-          "Vamos comparar lado a lado."<br><br>
-          "Tempo pra abrir ticket: 3 a 7 minutos vs menos de 15 segundos. Nocaute."<br><br>
-          "Contexto de localização: eles pedem pra digitar. A gente detecta automaticamente pelo QR."<br><br>
-          "Cadastro: eles exigem pré-cadastro. A gente cria a conta na hora."<br><br>
-          "Multi-empresa: eles precisam de instâncias separadas. A gente? Um usuário, várias empresas, papéis diferentes em cada uma."<br><br>
-          "E meu favorito: implementação. 3 a 6 meses com consultoria... vs semanas."<br><br>
-          "Agora vou mostrar a cereja do bolo."
-        </aside>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- DEMO #3: Split Screen - Showstopper                          -->
-      <!-- ============================================================ -->
-      <section data-background-color="#0f0f1a" data-transition="fade">
-        <div class="centered">
-          <div class="demo-badge">DEMO AO VIVO #3</div>
-          <h2 style="margin-bottom: 0.5em;">O Showstopper</h2>
-          <p class="muted" style="font-size: 0.9em; margin-bottom: 1em;">
-            Duas janelas. Tempo real.<br>
-            Requestor cria ticket &rarr; Técnico recebe oferta &rarr; Resolução ao vivo.
-          </p>
-          <div style="display: flex; gap: 1em; justify-content: center; flex-wrap: wrap;">
-            <div class="demo-url">h4m.io <span class="muted">(requestor)</span></div>
-            <div class="demo-url">hub.help4me.app <span class="muted">(técnico)</span></div>
-          </div>
-          <br>
-          <a href="#/16" class="skip-link">pular demo &rarr;</a>
+    <!-- Cronograma -->
+    <section>
+      <div class="kicker">05 · Execução</div>
+      <h2>Cronograma em uma visão</h2>
+      <div class="timeline">
+        <div class="phase">
+          <div class="when">Fase 0 · abr</div>
+          <h4>Fundação</h4>
+          <p>Três frentes largam juntas. Política de dados publicada, AI Champions identificados, comitê constituído, baseline de KPIs.</p>
         </div>
-        <aside class="notes">
-          <strong>Tempo: ~3-4 min (demo)</strong><br><br>
-          <strong>SETUP:</strong><br>
-          - Tela dividida: esquerda = h4m.io (quem precisa de ajuda), direita = hub.help4me.app (técnico)<br>
-          - Modo OFFER ativado pra área de ajuda<br><br>
-          <strong>ROTEIRO:</strong><br>
-          1. "Duas janelas. Esquerda: quem precisa de ajuda. Direita: o técnico."<br>
-          2. Quem precisa de ajuda abre ticket via QR<br>
-          3. "Olhem a direita..." — oferta aparece em tempo real<br>
-          4. Técnico aceita a oferta<br>
-          5. "Olhem a esquerda..." — status muda em tempo real<br>
-          6. Técnico marca como resolvido<br>
-          7. "O outro lado vê: resolvido. Tudo em tempo real."<br><br>
-          "Isso é o Help4Me. Do scan à resolução. Tudo em tempo real. Tudo conectado."
-        </aside>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- SLIDE 15: Grandes Desafios (externo)                          -->
-      <!-- ============================================================ -->
-      <section data-background-color="#0f0f1a">
-        <h2 style="font-size: 1.5em; margin-bottom: 1em;">
-          Grandes <span class="coral">Desafios</span>
-        </h2>
-        <div class="three-col" style="margin-bottom: 1.5em;">
-          <div class="step-card fragment fade-up" style="text-align: left;">
-            <div class="step-title" style="color: var(--coral);">Go-to-market contra gigantes</div>
-            <div style="font-size: 0.75em;">
-              ServiceNow tem <strong>US$ 8B de receita</strong>. Zendesk tem marca.
-              Jira tem ecossistema. Você tem... um produto melhor?
-              <span class="muted">Isso basta?</span>
-            </div>
-            <div style="font-size: 1.5em; margin-top: auto; padding-top: 0.4em;">🏔️</div>
-          </div>
-          <div class="step-card fragment fade-up" style="text-align: left;">
-            <div class="step-title" style="color: var(--sunset);">Adoção e mudança</div>
-            <div style="font-size: 0.75em;">
-              Convencer empresas a largar o sistema que já funciona "mais ou menos".
-              Resistência de TI. Ciclo de vendas enterprise: <strong>6 a 12 meses</strong>.
-            </div>
-            <div style="font-size: 1.5em; margin-top: auto; padding-top: 0.4em;">🔄</div>
-          </div>
-          <div class="step-card fragment fade-up" style="text-align: left;">
-            <div class="step-title" style="color: var(--teal);">Credibilidade sem nome grande</div>
-            <div style="font-size: 0.75em;">
-              <em>"Quem é você?"</em> — a pergunta mais difícil quando você não é a ServiceNow.
-              Confiança se constrói uma empresa de cada vez.
-            </div>
-            <div style="font-size: 1.5em; margin-top: auto; padding-top: 0.4em;">🤝</div>
-          </div>
+        <div class="phase">
+          <div class="when">0–90 dias · mai–jul</div>
+          <h4>Aceleração</h4>
+          <p>Três frentes em paralelo. Primeira edição do prêmio em curso. Iniciativas prioritárias em execução.</p>
         </div>
-        <aside class="notes">
-          <strong>Tempo: ~2 min</strong><br>
-          Tom: honesto, mas com determinação.<br><br>
-          "Agora o lado de fora."<br><br>
-          "ServiceNow tem 8 bilhões de dólares de receita. Zendesk tem marca. Jira tem o ecossistema Atlassian inteiro. E eu tenho... um produto melhor."<br><br>
-          (pausa) "Produto bom não vende sozinho."<br><br>
-          "Convencer uma empresa a trocar o sistema que 'funciona mais ou menos' é o desafio real. TI resiste. O ciclo de vendas enterprise é de 6 a 12 meses."<br><br>
-          "E a pergunta mais difícil: 'Quem é você?' Sem case de Fortune 500. Sem selo Gartner. Confiança se constrói uma empresa de cada vez."<br><br>
-          (pausa) "Mas sabe o que me motiva? Que o problema é real. E a solução funciona. Vocês acabaram de ver."
-        </aside>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- SLIDE 18: Pra quem?                                           -->
-      <!-- ============================================================ -->
-      <section data-background-color="#0f0f1a">
-        <h2 style="margin-bottom: 0.3em;">Pra quem?</h2>
-        <p class="muted" style="font-size: 0.65em; margin-bottom: 0.6em;">Help4Me não é pra qualquer empresa! É pra quem busca eficiência operacional de verdade, pra quem se preocupa em oferecer o melhor atendimento possível o mais rápido possível e que está cansado de tomar decisões no achismo.</p>
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6em;">
-          <div class="usecase-card fragment fade-up">
-            <div class="icon">🎓</div>
-            <h4>Educação</h4>
-            <p>
-              QR em cada sala, lab, banheiro.
-              Aluno escaneia, reporta, volta a estudar.
-            </p>
-          </div>
-          <div class="usecase-card fragment fade-up">
-            <div class="icon">🏥</div>
-            <h4>Saúde</h4>
-            <p>
-              Equipamento crítico, tempo é vida.
-              Profissional reporta em 15s sem sair do leito.
-            </p>
-          </div>
-          <div class="usecase-card fragment fade-up">
-            <div class="icon">🏨</div>
-            <h4>Hotelaria</h4>
-            <p>
-              Hóspede escaneia o QR, manutenção 24/7.
-              Uma rede, vários hotéis no mesmo sistema.
-            </p>
-          </div>
-          <div class="usecase-card fragment fade-up">
-            <div class="icon">🏭</div>
-            <h4>Indústria</h4>
-            <p>
-              Máquina parada = dinheiro perdido.
-              Operador reporta, técnico recebe na hora.
-            </p>
-          </div>
-          <div class="usecase-card fragment fade-up">
-            <div class="icon">🏢</div>
-            <h4>Corporativo</h4>
-            <p>
-              Escritórios, coworkings, facilities.
-              QR em impressoras, salas, ar-condicionado.
-            </p>
-          </div>
-          <div class="usecase-card fragment fade-up" style="border-color: var(--teal);">
-            <div class="icon">🌐</div>
-            <h4>Quem precisa</h4>
-            <p>
-              Help4Me foi desenvolvido pra ser adaptável. Nosso core é conectar quem precisa de ajuda a quem pode ajudar, e isso é universal.
-            </p>
-          </div>
+        <div class="phase">
+          <div class="when">90–180 dias · ago–out</div>
+          <h4>Maturação</h4>
+          <p>Segunda edição do prêmio. Iniciativas consolidando. Primeira avaliação formal de ampliação de time.</p>
         </div>
-        <aside class="notes">
-          <strong>Tempo: ~2 min</strong><br><br>
-          "Pra quem é o Help4Me? Pra quem quer eficiência operacional de verdade."<br><br>
-          Passar pelos 5 segmentos rapidamente, cenários concretos:<br><br>
-          "Educação: QR em cada sala, lab, banheiro. Aluno escaneia, reporta, volta a estudar."<br><br>
-          "Saúde: equipamento crítico, tempo é vida. Profissional reporta em 15 segundos sem sair do leito."<br><br>
-          "Hotelaria: hóspede escaneia o QR, manutenção 24/7. Uma rede, vários hotéis no mesmo sistema."<br><br>
-          "Indústria: máquina parada é dinheiro perdido. Operador reporta, técnico recebe na hora."<br><br>
-          "Corporativo: escritórios, coworkings, facilities. QR em tudo que precisa de suporte."<br><br>
-          "O core do Help4Me é conectar quem precisa de ajuda a quem pode ajudar. E onde existe essa necessidade, o Help4Me funciona."
-        </aside>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- SLIDE 19: E vamos além...                                     -->
-      <!-- ============================================================ -->
-      <section data-background-color="#0f0f1a">
-        <h2 style="margin-bottom: 1em;">E vamos além...</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; width: 100%;">
-          <div>
-            <h4 class="fragment fade-up" style="color: var(--teal); font-size: 0.9em; margin-bottom: 0.6em;">🤖 AI Features</h4>
-            <div class="roadmap-item fragment fade-up">
-              <div class="roadmap-dot" style="background: var(--teal);"></div>
-              <div>
-                <h4>Ações preventivas</h4>
-                <p>O sistema identifica padrões pra você agir antes do problema acontecer.</p>
-              </div>
-            </div>
-            <div class="roadmap-item fragment fade-up">
-              <div class="roadmap-dot" style="background: var(--teal);"></div>
-              <div>
-                <h4>Insights individuais, time, área</h4>
-                <p>Inteligência na análise dos dados. Decisões baseadas em dados, não em achismo.</p>
-              </div>
-            </div>
-            <div class="roadmap-item fragment fade-up">
-              <div class="roadmap-dot" style="background: var(--teal);"></div>
-              <div>
-                <h4>Categorização inteligente</h4>
-                <p>Classificação automática de tickets. Sugestão de prioridade. Detecção de recorrências.</p>
-              </div>
-            </div>
-            <div class="roadmap-item fragment fade-up">
-              <div class="roadmap-dot" style="background: var(--teal);"></div>
-              <div>
-                <h4>Manutenção preditiva</h4>
-                <p>Padrões de tickets por asset. Alertas antes da falha. Integração IoT, o equipamento "abre" o ticket.</p>
-              </div>
-            </div>
-          </div>
-          <div>
-            <h4 class="fragment fade-up" style="color: var(--coral); font-size: 0.9em; margin-bottom: 0.6em;">🚀 Produtividade para além do ticket</h4>
-            <div class="roadmap-item fragment fade-up">
-              <div class="roadmap-dot" style="background: var(--coral);"></div>
-              <div>
-                <h4>Autoajuda guiada</h4>
-                <p>Resolve antes mesmo do ticket. "Já tentou reiniciar?" Resolveu? Ótimo. Não? Ticket com contexto completo.</p>
-              </div>
-            </div>
-            <div class="roadmap-item fragment fade-up">
-              <div class="roadmap-dot" style="background: var(--coral);"></div>
-              <div>
-                <h4>Gamificação do time</h4>
-                <p>Ranking, conquistas, reconhecimento. Motivação e engajamento quem resolve problemas todo dia.</p>
-              </div>
-            </div>
-            <div class="roadmap-item fragment fade-up">
-              <div class="roadmap-dot" style="background: var(--coral);"></div>
-              <div>
-                <h4>Checklist de rondas e limpeza</h4>
-                <p>Escaneia o QR, confirma a tarefa. Adeus folha colada na porta. Histórico completo.</p>
-              </div>
-            </div>
-            <div class="roadmap-item fragment fade-up">
-              <div class="roadmap-dot" style="background: var(--coral);"></div>
-              <div>
-                <h4>Ecossistema de APIs</h4>
-                <p>Webhooks, API, ERP, Slack, Teams. Help4Me integrado a sua operação.</p>
-              </div>
-            </div>
-          </div>
+        <div class="phase">
+          <div class="when">180–365 dias · nov–abr/27</div>
+          <h4>Regime contínuo</h4>
+          <p>Terceira e quarta edições do prêmio. Primeiro ciclo de limpeza de dívida arquitetural.</p>
         </div>
-        <aside class="notes">
-          <strong>Tempo: ~2 min</strong><br><br>
-          "E a gente não para no ticket."<br><br>
-          Lado esquerdo — AI Features:<br>
-          "Ações preventivas: o sistema identifica padrões pra você agir antes do problema acontecer."<br>
-          "Insights individuais, por time e por área — decisões baseadas em dados, não em achismo."<br>
-          "Categorização inteligente: classificação automática, sugestão de prioridade, detecção de recorrências."<br>
-          "Manutenção preditiva: o sistema te avisa antes de quebrar."<br><br>
-          Lado direito — Produtividade para além do ticket:<br>
-          "Autoajuda guiada: resolve antes mesmo de abrir ticket. Zero custo pro time."<br>
-          "Gamificação: ranking, conquistas, reconhecimento. Motivação e engajamento."<br>
-          "Checklist de rondas: o mesmo QR que abre ticket serve pra confirmar tarefas. Adeus folha colada na porta."<br>
-          "Ecossistema de APIs: webhooks, ERP, Slack, Teams. Help4Me integrado à sua operação."
-        </aside>
-      </section>
+      </div>
+      <hr>
+      <p style="font-size: 0.75em; color: var(--text-500); margin-top: 1em;">Além do primeiro ano, as três frentes continuam vivas. Novas iniciativas entram conforme novos gargalos surgirem.</p>
+    </section>
 
-      <!-- ============================================================ -->
-      <!-- SLIDE 20: Encerramento                                      -->
-      <!-- ============================================================ -->
-      <section data-background-color="#0a0a12" data-transition="fade">
-        <div class="centered">
-          <div style="margin-bottom: 1.5em;">
-            <h1 style="font-size: 2.5em; margin-bottom: 0.1em;">
-              <span style="color: var(--white);">Help</span><span class="coral">4</span><span class="teal">Me</span>
-            </h1>
-          </div>
-          <p style="font-size: 1.4em; color: var(--light); margin-bottom: 0.3em; font-weight: 600;">
-            Conectando quem <span class="coral">precisa</span> de ajuda
-          </p>
-          <p style="font-size: 1.4em; color: var(--light); margin-bottom: 2em; font-weight: 600;">
-            a quem <span class="teal">resolve</span>.
-          </p>
-          <p style="color: var(--muted); font-size: 0.9em;">
-            Perguntas?
-          </p>
-        </div>
-        <aside class="notes">
-          <strong>Tempo: ~30s</strong><br><br>
-          Deixar o slide respirar. Silêncio é poderoso aqui.<br><br>
-          "Conectando quem precisa de ajuda a quem resolve."<br><br>
-          (pausa longa)<br><br>
-          "Obrigado. Perguntas?"
-        </aside>
-      </section>
+    <!-- Próximos passos -->
+    <section>
+      <div class="kicker">06 · Imediato</div>
+      <h2>Próximos passos</h2>
+      <ol>
+        <li><strong>Publicação da política de dados</strong> e dos princípios arquiteturais que orientam todas as soluções.</li>
+        <li><strong>Abertura oficial das três frentes</strong> com comitê técnico constituído e rituais de acompanhamento definidos.</li>
+        <li><strong>Identificação e formação dos AI Champions</strong> em cada área da UniFECAF.</li>
+        <li><strong>Primeira edição do Prêmio de Inovação em IA</strong>, dentro dos primeiros 90 dias.</li>
+        <li><strong>Conexão das iniciativas em curso</strong> às categorias de solução compartilhadas entre toda a organização.</li>
+      </ol>
+    </section>
 
-    </div><!-- .slides -->
-  </div><!-- .reveal -->
+    <!-- Por que isso importa -->
+    <section>
+      <div class="kicker warm">07 · Chamada à ação</div>
+      <h2>Por que isso importa</h2>
+      <blockquote>
+        <p>A UniFECAF está fazendo uma escolha institucional: usar IA de forma ampla, responsável e com propósito — sempre a serviço da educação, dos alunos e do impacto que entregamos como instituição.</p>
+      </blockquote>
+      <p style="margin-top: 1em;">Este não é um programa da TI. É <strong>a forma de trabalhar da UniFECAF daqui em diante</strong>, construída com a participação de todas as áreas.</p>
+      <p>Cada solução nasce de uma dor real, validada por quem vive o processo. O convite é para que cada pessoa da UniFECAF se veja como <strong>protagonista</strong> desse movimento.</p>
+    </section>
 
-  <!-- Reveal.js 5.x from CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+    <!-- Fechamento -->
+    <section class="closing cover" data-state="no-footer">
+      <h2>O futuro da instituição vai ser construído por quem se envolver agora.</h2>
+      <p>Obrigado.</p>
+      <div class="meta" style="margin-top: 2em;">Diretoria de TI · Abril de 2026</div>
+    </section>
 
-  <script>
-    Reveal.initialize({
-      hash: true,
-      slideNumber: true,
-      progress: true,
-      center: true,
-      transition: 'slide',
-      transitionSpeed: 'default',
-      backgroundTransition: 'fade',
-      width: 1920,
-      height: 1080,
-      margin: 0.08,
-      minScale: 0.2,
-      maxScale: 2.0,
-      scrollActivationWidth: 768,
-      scrollProgress: 'auto',
-      scrollSnap: 'proximity',
-      scrollLayout: 'compact',
-      plugins: [RevealNotes, RevealHighlight]
-    });
-  </script>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    transition: 'fade',
+    controls: true,
+    progress: true,
+    center: false,
+    width: 1280,
+    height: 800,
+    margin: 0.06,
+  });
+  // Esconde footer nos slides marcados com data-state="no-footer"
+  Reveal.on('no-footer', () => document.body.classList.add('hide-footer'));
+  Reveal.on('slidechanged', (e) => {
+    const states = (e.currentSlide.getAttribute('data-state') || '').split(/\s+/);
+    document.body.classList.toggle('hide-footer', states.includes('no-footer'));
+  });
+</script>
 </body>
 </html>
