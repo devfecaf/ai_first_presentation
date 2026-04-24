@@ -285,6 +285,49 @@
     color: var(--text-500);
   }
 
+  /* Slide "O que é?" — centralizado e distribuído */
+  .whatis {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    padding: 0 4em !important;
+  }
+  .whatis .kicker { text-align: center; margin-bottom: 2em; }
+  .whatis h2 { text-align: center; font-size: 2.6em; margin-bottom: 1.2em; }
+  .whatis .lead-centered {
+    font-family: var(--font-serif);
+    font-size: 1.45em;
+    line-height: 1.5;
+    color: var(--text-000);
+    max-width: 52ch;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .whatis .whatis-tail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2.4em;
+  }
+  .whatis .whatis-tail .bar {
+    display: block;
+    width: 42px;
+    height: 2px;
+    background: var(--accent-100);
+    margin-bottom: 1.2em;
+  }
+  .whatis .whatis-tail p {
+    font-family: var(--font-serif);
+    font-size: 0.95em;
+    color: var(--text-500);
+    max-width: 66ch;
+    text-align: center;
+    margin: 0;
+  }
+
   .closing {
     text-align: center;
   }
@@ -338,12 +381,14 @@
     </section>
 
     <!-- O que é -->
-    <section>
-      <div class="kicker">01 · O programa</div>
+    <section class="whatis">
+      <div class="kicker accent">01 · O programa</div>
       <h2>O que é?</h2>
-      <p class="lead">Um programa para transformar a UniFECAF em uma organização <strong>AI First</strong> — adoção ampla de IA em todo o backoffice, com responsabilidade sobre dados, processos e operação.</p>
-      <hr>
-      <p style="font-size: 0.9em; color: var(--text-500);">Três frentes permanentes operando em paralelo desde o dia um. Elas <strong>não terminam</strong> — são a nova forma de trabalhar.</p>
+      <p class="lead-centered">Um programa para transformar a UniFECAF em uma organização <strong>AI First</strong> — adoção ampla de IA em todo o backoffice, com responsabilidade sobre dados, processos e operação.</p>
+      <div class="whatis-tail">
+        <span class="bar"></span>
+        <p>Três frentes permanentes operando em paralelo desde o dia um. Elas <strong>não terminam</strong> — são a nova forma de trabalhar.</p>
+      </div>
     </section>
 
     <!-- Três frentes -->
